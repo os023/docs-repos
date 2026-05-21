@@ -66,4 +66,14 @@ export const docPackagesMeta: DocPackageMeta[] = [
       repository: 'https://github.com/web-infra-dev/midscene',
     },
   },
+  {
+    id: 'frp',
+    title: 'frp',
+    description: '高性能反向代理，将内网服务暴露到公网。',
+    officialLinks: {
+      website: 'https://gofrp.org',
+      documentation: 'https://gofrp.org/docs/',
+      repository: 'https://github.com/fatedier/frp',
+    },
+  },
 ];

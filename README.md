@@ -12,7 +12,8 @@
     ├── pgrest/
     ├── docusaurus/
     ├── opencode/
-    └── midscene/
+    ├── midscene/
+    └── frp/
 ```
 
 每个 `packages/<name>/` 子包包含：
