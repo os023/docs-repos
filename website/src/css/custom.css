@@ -56,3 +56,25 @@
   font-size: 0.9rem;
   color: var(--ifm-color-content-secondary);
 }
+
+.doc-card > a {
+  display: block;
+  text-decoration: none;
+}
+
+.doc-card > a:hover {
+  text-decoration: none;
+}
+
+.official-links {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.official-links a {
+  color: var(--ifm-color-primary);
+}

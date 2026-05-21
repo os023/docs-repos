@@ -2,5 +2,10 @@
   "name": "@docs/pgrest",
   "version": "0.0.0",
   "private": true,
-  "description": "PostgREST 中文文档"
+  "description": "PostgREST 中文文档",
+  "officialLinks": {
+    "website": "https://postgrest.org",
+    "documentation": "https://postgrest.org/en/stable/",
+    "repository": "https://github.com/PostgREST/postgrest"
+  }
 }

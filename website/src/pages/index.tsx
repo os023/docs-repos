@@ -2,34 +2,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-
-const docSections = [
-  {
-    id: 'prisma',
-    title: 'Prisma',
-    description: '现代 TypeScript ORM，数据库建模与迁移。',
-  },
-  {
-    id: 'pgrest',
-    title: 'PostgREST',
-    description: '将 PostgreSQL 自动暴露为 RESTful API。',
-  },
-  {
-    id: 'docusaurus',
-    title: 'Docusaurus',
-    description: '静态站点生成器，适合技术文档站。',
-  },
-  {
-    id: 'opencode',
-    title: 'OpenCode',
-    description: '开源 AI 编程助手与 CLI 工具链。',
-  },
-  {
-    id: 'midscene',
-    title: 'Midscene',
-    description: 'AI 驱动的 UI 自动化与视觉测试。',
-  },
-];
+import {docPackagesMeta} from '../data/doc-packages';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -45,6 +18,35 @@ function HomepageHeader() {
   );
 }
 
+function OfficialLinksList({
+  links,
+}: {
+  links: (typeof docPackagesMeta)[number]['officialLinks'];
+}) {
+  return (
+    <ul className="official-links">
+      <li>
+        <a href={links.website} target="_blank" rel="noopener noreferrer">
+          官网
+        </a>
+      </li>
+      <li>
+        <a
+          href={links.documentation}
+          target="_blank"
+          rel="noopener noreferrer">
+          文档
+        </a>
+      </li>
+      <li>
+        <a href={links.repository} target="_blank" rel="noopener noreferrer">
+          仓库
+        </a>
+      </li>
+    </ul>
+  );
+}
+
 export default function Home(): JSX.Element {
   return (
     <Layout title="首页" description="常用库与开源系统的中文文档">
@@ -52,14 +54,19 @@ export default function Home(): JSX.Element {
       <main className="container margin-vert--lg">
         <Heading as="h2">文档库</Heading>
         <p>
-          每个库对应 <code>packages/</code> 下的独立子包，由主站统一聚合展示。
+          每个库对应 <code>packages/</code> 下的独立子包，须声明
+          <strong> 官方网站、官方文档与代码仓库 </strong>
+          地址（见 <code>docs/package-convention.md</code>）。
         </p>
         <div className="doc-card-grid">
-          {docSections.map(({id, title, description}) => (
-            <Link key={id} className="doc-card" to={`/${id}`}>
-              <Heading as="h3">{title}</Heading>
-              <p>{description}</p>
-            </Link>
+          {docPackagesMeta.map(({id, title, description, officialLinks}) => (
+            <div key={id} className="doc-card">
+              <Link to={`/${id}`}>
+                <Heading as="h3">{title}</Heading>
+                <p>{description}</p>
+              </Link>
+              <OfficialLinksList links={officialLinks} />
+            </div>
           ))}
         </div>
       </main>
