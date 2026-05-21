@@ -9,6 +9,7 @@ const docPackages = [
   {id: 'docusaurus', label: 'Docusaurus', dir: 'docusaurus'},
   {id: 'opencode', label: 'OpenCode', dir: 'opencode'},
   {id: 'midscene', label: 'Midscene', dir: 'midscene'},
+  {id: 'frp', label: 'frp', dir: 'frp'},
 ] as const;
 
 const config: Config = {

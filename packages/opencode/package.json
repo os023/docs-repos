@@ -2,5 +2,10 @@
   "name": "@docs/opencode",
   "version": "0.0.0",
   "private": true,
-  "description": "OpenCode 中文文档"
+  "description": "OpenCode 中文文档",
+  "officialLinks": {
+    "website": "https://opencode.ai",
+    "documentation": "https://opencode.ai/docs",
+    "repository": "https://github.com/anomalyco/opencode"
+  }
 }

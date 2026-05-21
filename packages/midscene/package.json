@@ -2,5 +2,10 @@
   "name": "@docs/midscene",
   "version": "0.0.0",
   "private": true,
-  "description": "Midscene 中文文档"
+  "description": "Midscene 中文文档",
+  "officialLinks": {
+    "website": "https://midscenejs.com",
+    "documentation": "https://midscenejs.com/zh/intro",
+    "repository": "https://github.com/web-infra-dev/midscene"
+  }
 }

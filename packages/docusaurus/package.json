@@ -2,5 +2,10 @@
   "name": "@docs/docusaurus",
   "version": "0.0.0",
   "private": true,
-  "description": "Docusaurus 中文文档"
+  "description": "Docusaurus 中文文档",
+  "officialLinks": {
+    "website": "https://docusaurus.io",
+    "documentation": "https://docusaurus.io/docs",
+    "repository": "https://github.com/facebook/docusaurus"
+  }
 }

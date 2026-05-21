@@ -1,0 +1,11 @@
+{
+  "name": "@docs/frp",
+  "version": "0.0.0",
+  "private": true,
+  "description": "frp 中文文档",
+  "officialLinks": {
+    "website": "https://gofrp.org",
+    "documentation": "https://gofrp.org/docs/",
+    "repository": "https://github.com/fatedier/frp"
+  }
+}

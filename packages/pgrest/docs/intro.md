@@ -8,6 +8,10 @@ PostgREST 将 PostgreSQL 数据库直接映射为 RESTful API，无需手写 CRU
 
 本目录用于整理 **PostgREST 的中文使用说明与配置笔记**。
 
-## 推荐阅读
+## 官方链接
 
-- [PostgREST 官方文档](https://postgrest.org/en/stable/)
+| 类型 | 地址 |
+|------|------|
+| 官方网站 | [postgrest.org](https://postgrest.org) |
+| 官方文档 | [PostgREST Documentation](https://postgrest.org/en/stable/) |
+| 代码仓库 | [PostgREST/postgrest](https://github.com/PostgREST/postgrest) |
