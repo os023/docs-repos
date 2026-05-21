@@ -1,0 +1,15 @@
+{
+  "name": "chinese-docs",
+  "private": true,
+  "description": "常用库、组件与开源系统的中文文档（Docusaurus + pnpm workspace）",
+  "scripts": {
+    "start": "pnpm --filter website start",
+    "build": "pnpm --filter website build",
+    "serve": "pnpm --filter website serve",
+    "clear": "pnpm --filter website clear"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

@@ -2,15 +2,32 @@
 
 ## Cursor Cloud specific instructions
 
-This is a brand-new Node.js repository (initial commit only). The `.gitignore` covers Node.js, Next.js, Nuxt.js, Gatsby, Svelte, Vite, and other JS ecosystem tools.
+Docusaurus 中文文档 monorepo（pnpm workspace）。
 
-### Environment
+### 环境
 
-- **Node.js**: Managed via `nvm`. The VM ships with Node v22 LTS, npm, pnpm, and yarn pre-installed.
-- **No application code** exists yet. Once application code is added, update this file with build/test/lint/run instructions.
+- **Node.js**: >= 20（VM 预装 v22）
+- **包管理器**: pnpm（根目录 `packageManager` 字段锁定版本）
 
-### Notes for future agents
+### 常用命令
 
-- When `package.json` is added, install dependencies with the package manager matching the lockfile (`package-lock.json` → npm, `yarn.lock` → yarn, `pnpm-lock.yaml` → pnpm).
-- No services, databases, or external dependencies are required at this time.
-- No lint, test, or build commands exist yet.
+在仓库根目录执行：
+
+| 命令 | 说明 |
+|------|------|
+| `pnpm install` | 安装全部 workspace 依赖 |
+| `pnpm start` | 启动开发服务器（`website`，默认 http://localhost:3000） |
+| `pnpm build` | 生产构建 |
+| `pnpm serve` | 预览构建产物 |
+| `pnpm clear` | 清理 Docusaurus 缓存 |
+
+### 目录约定
+
+- `website/` — 主站 Docusaurus 应用，在 `docusaurus.config.ts` 中注册各文档插件
+- `packages/<name>/` — 各库文档子包（`docs/` + `sidebars.ts`）
+
+新增文档库时，需同时更新 `website/docusaurus.config.ts` 中的 `docPackages` 列表。
+
+### 构建验证
+
+`pnpm build` 应无错误完成；`onBrokenLinks` 已设为 `throw`，请勿保留失效内部链接。
