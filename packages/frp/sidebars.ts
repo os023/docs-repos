@@ -13,7 +13,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '安装',
       collapsed: false,
-      items: ['setup/index'],
+      items: ['setup/index', 'setup/install', 'setup/quickstart'],
     },
     {
       type: 'category',
