@@ -1,21 +1,47 @@
 # FAQ
 
-本节收集使用 frp 时的常见问题与排查入口。详细问答与版本差异以 [官方 FAQ](https://gofrp.org/zh-cn/docs/faq/) 为准；本仓库将在后续章节补充更完整的中文排错笔记。
+本节汇总使用 frp 时的常见问题与排查入口。更细化的日志与步骤见 [排错指南](troubleshooting)；官方页面：[FAQ](https://gofrp.org/zh-cn/docs/faq/)。
 
-## 客户端无法连接 frps
+## 本章导航
 
-**可能原因**：`serverAddr` / `serverPort` 填写错误；公网防火墙未放行 frps 端口；frps 未启动或监听地址绑定不当；双方 `auth.token` 不一致。
+| 页面 | 内容 |
+|------|------|
+| [排错指南](troubleshooting) | 典型现象、日志关键字、分步排查 |
 
-**建议步骤**：在客户端机器用 `telnet` 或 `nc` 测试到 frps 端口的连通性；查看 frps、frpc 日志中的 `login` 与 `authorization failed` 字样；确认配置文件路径与启动命令中的 `-c` 一致。
+## 快速问答
 
-## 代理已注册但访问不通
+### 客户端无法连接 frps？
 
-**可能原因**：`localPort` 指向的服务未监听；`remotePort` 被占用或与防火墙规则冲突；HTTP 代理的 `customDomains` 与访问 URL 不匹配。
+**常见原因**：`serverAddr` / `serverPort` 错误；公网未放行 `bindPort`；frps 未启动；`auth.token` 不一致；frpc/frps 版本不兼容。
 
-**建议步骤**：在本机直接访问 `localIP:localPort` 验证内网服务正常；检查 frps 安全组/iptables；对 HTTP 类型核对 Host 头与 frps 的 `vhostHTTPPort` 等设置。
+**先做**：`nc -zv <serverAddr> <serverPort>`；将 `log.level` 设为 `debug` 查看两端日志。详见 [排错指南 · 控制通道](troubleshooting#控制通道无法建立)。
 
-## 配置修改不生效
+### 代理已注册但访问不通？
 
-frpc/frps 多数配置需**重启进程**后生效。若使用热重载能力，请以当前版本官方文档为准。修改配置后建议先执行语法检查再重启，并保留一份可回滚的配置副本。
+**常见原因**：内网 `localPort` 无服务；`remotePort` 未放行；HTTP 的域名或端口与 `customDomains` / `vhostHTTPPort` 不匹配。
 
-更多现象与日志解读将在「常用配置」与 FAQ 后续小节中补充。
+**先做**：在本机 `curl` 或 `ssh` 直连 `localIP:localPort`；外网测试 `remotePort` 或带 Host 的 HTTP。详见 [排错指南 · 代理不可用](troubleshooting#代理已注册但无法访问)。
+
+### HTTP 域名打不开？
+
+核对 DNS 是否指向 frps、访问 URL 是否包含正确的 `vhostHTTPPort`、浏览器 Host 是否与 `customDomains` 一致。见 [示例 · HTTP](../examples/http)、[概念 · 端口与域名](../concepts/ports-domains)。
+
+### 配置改了不生效？
+
+多数项需**重启** frps/frpc。确认编辑的是 `-c` 指向的文件，且启动目录与相对路径一致。
+
+### 如何开启日志排错？
+
+在对应配置中设置：
+
+```toml
+log.level = "debug"
+log.to = "./frpc.log"   # 或 frps.log
+```
+
+重启后复现问题，再对照 [排错指南](troubleshooting) 中的关键字。
+
+## 延伸阅读
+
+- [常用配置](../config) · [安装 · 快速开始](../setup/quickstart)
+- [认证与安全](../concepts/security)
