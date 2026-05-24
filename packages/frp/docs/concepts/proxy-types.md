@@ -49,8 +49,8 @@ TCP/UDP 类型还需在 frpc 中设置 **`remotePort`**（或由 frps 分配）�
 
 | 场景 | 建议类型 | 本站章节 |
 |------|----------|----------|
-| SSH 远程登录 | tcp | [示例 · SSH](../examples)（后续子页） |
-| 内网 Web | http | [示例](../examples) |
-| 对外 HTTPS | https 或 http + 插件 | [示例](../examples) |
+| SSH 远程登录 | tcp | [SSH 远程访问](../examples/ssh) |
+| 内网 Web | http | [HTTP / Web](../examples/http) |
+| 对外 HTTPS | https 或 http + 插件 | [HTTPS 与自定义域名](../examples/https-domains) |
 
 官方示例集：[examples](https://gofrp.org/zh-cn/docs/examples/)。
