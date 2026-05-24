@@ -1,29 +1,33 @@
 # 常用配置
 
-本节汇总 frp 配置文件的总体结构与高频字段，便于查阅与复制片段。字段级说明以 [官方参考 · 通用/服务端/客户端配置](https://gofrp.org/zh-cn/docs/reference/) 为准；后续章节将补充 TOML 示例与排错对照。
+本节汇总 frp **TOML** 配置的整体结构与高频字段，便于查阅与复制片段。完整字段说明以 [官方 Reference](https://gofrp.org/zh-cn/docs/reference/) 为准。
 
-## 配置文件结构（TOML）
+## 本章导航
 
-典型布局分为三层：
-
-1. **全局段**：`serverAddr`、`serverPort`、`auth`（token 等）、日志、传输层参数。
-2. **代理列表**：在 frpc 中以 `[[proxies]]` 声明多个代理，每个代理含 `name`、`type` 及类型相关字段。
-3. **插件 / 访问者**：按需增加 `[[visitors]]` 或客户端插件配置。
-
-服务端 `frps.toml` 侧重 `bindPort`、鉴权、子域名 host、端口范围等；客户端 `frpc.toml` 侧重连接目标与本地 `localIP` / `localPort`。
-
-## 常用字段速查（客户端代理）
-
-| 字段 | 含义 |
+| 页面 | 内容 |
 |------|------|
-| `name` | 代理唯一名称，日志与路由标识 |
-| `type` | `tcp`、`udp`、`http`、`https` 等 |
-| `localIP` / `localPort` | 内网真实服务地址 |
-| `remotePort` | （TCP/UDP）在 frps 上监听的端口 |
-| `customDomains` | （HTTP/HTTPS）绑定的域名列表 |
+| [配置结构与字段](fields) | TOML 分层、`frps.toml` / `frpc.toml` 常用项、代理段字段 |
 
-## 下一步
+## 格式与文件
 
-- 结合 [示例](../examples) 查看完整片段。
-- `auth`、`transport.tls` 等见 [概念 · 认证与安全](../concepts/security)。
-- 连接失败、认证错误等问题见 [FAQ](../faq)；典型日志排查将在 FAQ 章节进一步展开。
+| 项目 | 说明 |
+|------|------|
+| **推荐格式** | TOML（亦支持 YAML、JSON） |
+| **典型文件名** | `frps.toml`、`frpc.toml` |
+| **加载方式** | `frps -c ./frps.toml`、`frpc -c ./frpc.toml` |
+| **INI** | 旧版仍可用，新项目不建议 |
+
+配置文件路径无系统默认值，须通过 `-c` 指定；相对路径相对于**启动时工作目录**。
+
+## 阅读顺序
+
+1. 先完成 [安装](../setup) 与任一 [示例](../examples)（如 [SSH](../examples/ssh)）。
+2. 阅读 [配置结构与字段](fields)，对照本机 `frps.toml` / `frpc.toml` 修改。
+3. 遇连通性、认证、域名等问题时，见 [FAQ](../faq) 与 [排错指南](../faq/troubleshooting)。
+
+## 官方参考
+
+- [通用配置](https://gofrp.org/zh-cn/docs/reference/common/)
+- [服务端配置](https://gofrp.org/zh-cn/docs/reference/server-configures/)
+- [客户端配置](https://gofrp.org/zh-cn/docs/reference/client-configures/)
+- [代理配置](https://gofrp.org/zh-cn/docs/reference/proxy/)
