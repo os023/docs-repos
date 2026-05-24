@@ -13,13 +13,19 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '安装',
       collapsed: false,
-      items: ['setup/index', 'setup/install', 'setup/quickstart'],
+      items: ['setup/index'],
     },
     {
       type: 'category',
       label: '概念',
       collapsed: false,
-      items: ['concepts/index'],
+      items: [
+        'concepts/index',
+        'concepts/architecture',
+        'concepts/proxy-types',
+        'concepts/ports-domains',
+        'concepts/security',
+      ],
     },
     {
       type: 'category',
