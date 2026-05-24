@@ -14,8 +14,8 @@
 
 ## 阅读建议
 
-1. 先完成 [安装](../setup) 与 [快速开始与自检](../setup/quickstart)，确认 frpc 已在 frps 上线。
-2. 在 [概念](../concepts) 中确认代理类型与端口/域名需求。
+1. 先完成 [安装](../setup) 与 [快速开始](../setup/quickstart)，确认 frpc 已在 frps 上线。
+2. 在 [概念](../concepts) 中确认[代理类型](../concepts/proxy-types)与[端口/域名](../concepts/ports-domains)需求。
 3. 从与本节目录对应的子页面复制最小配置，再按环境修改 `serverAddr`、`remotePort`、域名等字段。
 
 下列子页面将在后续章节补充可运行配置片段；当前可先对照官方文档中的同名示例进行实验。

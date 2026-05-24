@@ -25,4 +25,5 @@
 ## 下一步
 
 - 结合 [示例](../examples) 查看完整片段。
+- `auth`、`transport.tls` 等见 [概念 · 认证与安全](../concepts/security)。
 - 连接失败、认证错误等问题见 [FAQ](../faq)；典型日志排查将在 FAQ 章节进一步展开。

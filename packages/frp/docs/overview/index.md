@@ -14,4 +14,4 @@ frp（Fast Reverse Proxy）是一款面向内网穿透场景的高性能反向�
 - **P2P（XTCP 等）**：部分场景下流量可不经服务器中转。
 - **插件与 Web UI**：客户端/服务端插件扩展能力强，并配有管理界面。
 
-后续章节将分别说明[安装](../setup)（含[获取与安装](../setup/install)、[快速开始](../setup/quickstart)）、[核心概念](../concepts)、[示例](../examples)与[常用配置](../config)。遇到问题时可参考 [FAQ](../faq)。
+后续章节将分别说明[安装](../setup)、[概念](../concepts)（含[架构](../concepts/architecture)、[代理类型](../concepts/proxy-types)等）、[示例](../examples)与[常用配置](../config)。遇到问题时可参考 [FAQ](../faq)。

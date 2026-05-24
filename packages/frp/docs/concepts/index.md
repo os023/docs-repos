@@ -1,28 +1,27 @@
 # 概念
 
-理解 frp 的核心术语有助于正确编写配置并排查连通性问题。本节为中文笔记提纲，完整说明见 [官方文档 · 概念](https://gofrp.org/zh-cn/docs/concepts/)。
+理解 frp 的核心术语有助于正确编写配置并排查连通性问题。本章以中文笔记归纳要点，完整说明见 [官方文档 · 概念](https://gofrp.org/zh-cn/docs/concepts/)。
 
-## 工作原理
+## 本章导航
 
-frp 由 **frps（服务端）** 与 **frpc（客户端）** 组成：frps 通常部署在公网机器上，frpc 部署在内网。外部用户访问 frps 暴露的地址后，frp 根据代理名称、端口或 HTTP 主机名等规则，将流量转发到对应 frpc 背后的本地服务。
+| 页面 | 内容 |
+|------|------|
+| [架构与角色](architecture) | frps/frpc 职责、控制通道与数据流、典型拓扑 |
+| [代理类型](proxy-types) | TCP/UDP/HTTP/HTTPS/STCP 等类型与选型 |
+| [端口与域名](ports-domains) | `bindPort`、`remotePort`、`customDomains`、`subdomain` |
+| [认证与安全](security) | `auth.token`、OIDC 择要、控制通道 TLS |
 
-## 代理（Proxy）
+建议先完成 [安装](../setup) 与 [快速开始](../setup/quickstart)，再阅读本章，最后对照 [示例](../examples) 动手配置。
 
-在 frp 中，**一个代理对应一个需要被暴露的内网服务**。单个 frpc 可同时配置多个代理（例如同时暴露 SSH 与内网 Web），彼此以不同 `name` 区分。
+## 核心术语速览
 
-## 常见代理类型
+- **frps**：部署在公网侧，接收外部访问并维护与 frpc 的控制连接。
+- **frpc**：部署在内网侧，向 frps 注册代理，将流量转发到本地服务。
+- **代理（Proxy）**：一条 `[[proxies]]` 配置，对应一个需要暴露的内网服务；以 `name` 区分。
+- **控制通道**：frpc 与 frps 之间的长连接（默认 `serverPort` / `bindPort`，常为 7000），用于注册代理与协商；用户业务流量经此隧道或 P2P 转发。
 
-| 类型 | 典型用途 |
-|------|----------|
-| **TCP** | 纯端口映射，如 SSH、数据库 |
-| **UDP** | UDP 服务，如 DNS |
-| **HTTP / HTTPS** | 内网 Web，支持 Host、路径与 TLS |
-| **STCP / SUDP** | 需访问端也运行 frpc，服务端不额外开端口 |
-| **XTCP** | 点对点穿透，流量可不经过 frps 中转 |
-| **TCPMUX** | 同一端口复用多个基于 HTTP Connect 的服务 |
+## 下一步
 
-选型取决于协议、是否要自定义域名、以及安全隔离要求。后续 [示例](../examples) 与 [常用配置](../config) 章节将结合场景展开。
-
-## 认证与安全（提纲）
-
-生产环境应为 frps/frpc 配置 **token** 或其它认证方式，并视需要启用 **TLS** 加密控制通道。具体字段与示例将在「常用配置」与后续概念小节中展开。
+- 需要最小可运行配置时，见 [示例](../examples)。
+- 需要字段速查时，见 [常用配置](../config)。
+- 连接失败、域名无法访问等问题，见 [FAQ](../faq)。
