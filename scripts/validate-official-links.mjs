@@ -1,7 +1,8 @@
 import {readdir, readFile} from 'node:fs/promises';
 import {join} from 'node:path';
+import {fileURLToPath} from 'node:url';
 
-const packagesDir = new URL('../packages', import.meta.url).pathname;
+const packagesDir = fileURLToPath(new URL('../packages', import.meta.url));
 const requiredKeys = ['website', 'documentation', 'repository'];
 
 function isHttpUrl(value) {

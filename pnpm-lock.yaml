@@ -10,6 +10,8 @@ importers:
 
   packages/docusaurus: {}
 
+  packages/frp: {}
+
   packages/midscene: {}
 
   packages/opencode: {}
