@@ -19,19 +19,18 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '概念',
       collapsed: false,
-      items: [
-        'concepts/index',
-        'concepts/architecture',
-        'concepts/proxy-types',
-        'concepts/ports-domains',
-        'concepts/security',
-      ],
+      items: ['concepts/index'],
     },
     {
       type: 'category',
       label: '示例',
       collapsed: false,
-      items: ['examples/index'],
+      items: [
+        'examples/index',
+        'examples/ssh',
+        'examples/http',
+        'examples/https-domains',
+      ],
     },
     {
       type: 'category',
