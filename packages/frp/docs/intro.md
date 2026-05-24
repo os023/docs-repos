@@ -6,7 +6,18 @@ slug: /
 
 frp（Fast Reverse Proxy）是一款高性能反向代理，用于将处于 NAT 或防火墙后的本地服务暴露到公网。
 
-本目录用于整理 **frp 的中文安装、配置与使用笔记**。
+本目录用于整理 **frp 的中文安装、配置与使用笔记**，章节结构对照 [frp 官方中文文档](https://gofrp.org/zh-cn/docs/)。
+
+## 文档导航
+
+| 章节 | 说明 |
+|------|------|
+| [概览](overview/index) | frp 定位、特性与阅读路径 |
+| [安装](setup/index) | 获取二进制、部署 frps/frpc、首次启动 |
+| [概念](concepts/index) | frps/frpc、代理类型、认证与安全要点 |
+| [示例](examples/index) | SSH、HTTP/Web、HTTPS 等常见场景索引 |
+| [常用配置](config/index) | TOML 结构、常用字段速查 |
+| [FAQ](faq/index) | 连通性、代理访问与配置生效等问题 |
 
 ## 官方链接
 
