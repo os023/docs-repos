@@ -12,12 +12,12 @@ frp（Fast Reverse Proxy）是一款高性能反向代理，用于将处于 NAT 
 
 | 章节 | 说明 |
 |------|------|
-| [概览](overview/index) | frp 定位、特性与阅读路径 |
-| [安装](setup/index) | 获取二进制、部署 frps/frpc、首次启动 |
-| [概念](concepts/index) | frps/frpc、代理类型、认证与安全要点 |
-| [示例](examples/index) | SSH、HTTP/Web、HTTPS 等常见场景索引 |
-| [常用配置](config/index) | TOML 结构、常用字段速查 |
-| [FAQ](faq/index) | 连通性、代理访问与配置生效等问题 |
+| [概览](overview) | frp 定位、特性与阅读路径 |
+| [安装](setup) | 获取与安装、配置路径、快速开始与连通性自检 |
+| [概念](concepts) | frps/frpc、代理类型、认证与安全要点 |
+| [示例](examples) | SSH、HTTP/Web、HTTPS 等常见场景索引 |
+| [常用配置](config) | TOML 结构、常用字段速查 |
+| [FAQ](faq) | 连通性、代理访问与配置生效等问题 |
 
 ## 官方链接
 
