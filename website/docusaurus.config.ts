@@ -10,6 +10,7 @@ const docPackages = [
   {id: 'opencode', label: 'OpenCode', dir: 'opencode'},
   {id: 'midscene', label: 'Midscene', dir: 'midscene'},
   {id: 'frp', label: 'frp', dir: 'frp'},
+  {id: 'midway', label: 'Midway', dir: 'midway'},
 ] as const;
 
 const config: Config = {

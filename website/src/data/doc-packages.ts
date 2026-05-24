@@ -76,4 +76,14 @@ export const docPackagesMeta: DocPackageMeta[] = [
       repository: 'https://github.com/fatedier/frp',
     },
   },
+  {
+    id: 'midway',
+    title: 'Midway',
+    description: '面向 Node.js 的企业级框架，v4 支持 Koa、OOP 与函数式一体化入口。',
+    officialLinks: {
+      website: 'https://midwayjs.org',
+      documentation: 'https://midwayjs.org/docs',
+      repository: 'https://github.com/midwayjs/midway',
+    },
+  },
 ];
